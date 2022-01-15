@@ -1,35 +1,16 @@
 package ru.vald3r.service.service;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import ru.vald3r.service.model.Person;
-import ru.vald3r.service.repository.PersonRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@Slf4j
-public class PersonService {
-    @Autowired
-    private PersonRepository personRepository;
+public interface PersonService {
+    Optional<Person> getPersonById(Long id);
 
-    public Optional<Person> getPersonById(Long id){
-        return personRepository.findById(id);
-    }
+    List<Person> getAll();
 
-    public List<Person> getAll(){
-        return personRepository.findAll();
-    }
+    Person savePerson(Person person);
 
-    public Person savePerson(Person person){
-        return personRepository.save(person);
-    }
-
-
-
-    public void deletePerson(Long id){
-        personRepository.deleteById(id);
-    }
+    void deletePerson(Long id);
 }

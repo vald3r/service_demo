@@ -28,10 +28,16 @@ public class Person {
     @Column(name = "age")
     private Integer age;
 
-    public Person(String name, Integer age) {
+    @Column(name = "email", unique = true, nullable = false)
+    private String email;
+
+
+    public Person(String name, Integer age, String email) {
         this.name = name;
         this.age = age;
+        this.email = email;
     }
+
 
     @Override
     public boolean equals(Object o) {
