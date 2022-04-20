@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.2'
+    id 'org.springframework.boot' version '2.6.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'org.siouan.frontend-jdk11' version '6.0.0'
@@ -21,22 +21,23 @@ repositories {
 
 ext {
     set('springCloudVersion', "2021.0.0")
+    set('springBootVersion', '2.6.6')
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.6.2'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.2'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.6.2'
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
-    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:3.1.0'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
     implementation 'org.flywaydb:flyway-core'
     compileOnly 'org.projectlombok:lombok:1.18.22'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.6.2'
-    runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.8.1'
-    runtimeOnly 'org.postgresql:postgresql:42.3.1'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:2.6.2'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.8.4'
+    runtimeOnly 'org.postgresql:postgresql:42.3.3'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
 
@@ -47,7 +48,7 @@ dependencyManagement {
 }
 
 frontend {
-    nodeVersion = '14.17.3'
+    nodeVersion = '14.17.2'
     assembleScript = 'run build'
     cleanScript = 'run clean'
     checkScript = 'run check'
